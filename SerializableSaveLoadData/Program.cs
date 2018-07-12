@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +15,17 @@ namespace ConsoleApplication1
             public int id;
             public bool bool1;
             public string stroka;
+            public List<int> ListInt;
         }
 
         static void SaveData()
         {
             ClassSave Save1 = new ClassSave();
+            Save1.ListInt = new List<int>();
+            Save1.ListInt.Add(4);
+            Save1.ListInt.Add(2);
+            Save1.ListInt.Add(5);
+            Save1.ListInt.Add(6);
             Save1.id = 0;
             Save1.bool1 = true;
             Save1.stroka = "Привет. Как дела?";
@@ -39,7 +45,7 @@ namespace ConsoleApplication1
                 try
                 {
                     ClassSave Load1 = (ClassSave)bformatter.Deserialize(fs);
-                    Console.Write(Load1.stroka);
+                    Console.Write(Load1.stroka + Load1.ListInt[3]);
                 }
                 catch (System.Exception e)
                 {
